@@ -1,4 +1,5 @@
 import { View } from './View.js';
+import { Emitter } from "./Emitter.js";
 
 const Timer = {
   // O tempo inicial do contador 
@@ -13,6 +14,7 @@ const Timer = {
   formatTime: time => String(time).padStart(2, '0'),
 
   init: time => {
+    Emitter.emit('countdown-start');
     Timer.time = time || Timer.time;
     // O currentTime tem o valor de time atribuído nele
     Timer.currentTime = Timer.time;
@@ -32,7 +34,11 @@ const Timer = {
       seconds,
     })
     // Não deixa que o contador continue contando após zerar
-    if(Timer.currentTime === 0) clearInterval(Timer.interval);
+    if(Timer.currentTime === 0) {
+      clearInterval(Timer.interval);
+      Emitter.emit('countdown-end')
+      return;
+    }
   }
 }
 
