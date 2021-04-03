@@ -1,18 +1,21 @@
-import { Notifier } from './Notifier.js';
+import { Notifier } from "./Notifier.js";
+import { Timer } from "./Timer.js";
 
 const App = {
   async start() {
-   try {
-    await Notifier.init();
-    Notifier.notify({ 
-      title: "Hora do post",
-      body: "Post algum conteúdo"
-     })
+    try {
+      const time = 25 * 60;
+      Timer.init(time);
 
-   } catch (e) {
-     console.log(e.message);
-   }
-  }
-}
+      await Notifier.init();
+      Notifier.notify({
+        title: "Hora do post",
+        body: "Post algum conteúdo",
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
+  },
+};
 
 export { App };
