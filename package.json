@@ -1,0 +1,7 @@
+{
+  "name": "linkedin-post-reminder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gabriel Martins <martinsgabriel1956@gmail.com>",
+  "license": "MIT"
+}
