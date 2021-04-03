@@ -2,11 +2,23 @@ import { Notifier } from "./Notifier.js";
 import { Timer } from "./Timer.js";
 import { Emitter } from "./Emitter.js";
 
-const notify = Notifier.notify({
-  title: "Hora do post",
-  body: "Post algum conteúdo",
-});
+const notifyMessage = [
+  "Crie um novo post", 
+  "responda as mensagens do seu feed ou chat", 
+  "Curta e compartilhe o conteúdo das páginas que segue"
+];
 
+const notify = () => {
+  const randomMessage = notifyMessage[(Math.floor(Math.random() * notifyMessage.length))];
+  
+  const notification = Notifier.notify({
+    title: "Hora do post",
+    body: `${randomMessage}`,
+  });
+
+  notification();
+} 
+  
 const App = {
   async start() {
     try {
