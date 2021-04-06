@@ -1,9 +1,10 @@
 {
   "name": "linkedin-post-reminder",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "./electron/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "npx electron-packager . --icon assets/linkedin.icns --out=packages"
   },
   "author": "Gabriel Martins <martinsgabriel1956@gmail.com>",
   "license": "MIT",
